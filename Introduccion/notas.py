@@ -1,4 +1,3 @@
-
 print("Hello World!")
 # Comentario 
 num = 15 # 15
@@ -133,3 +132,110 @@ for edad in edades:
 
 for clave,valor in edades.items():
     print(clave,valor)
+
+x=20
+while x < 35: 
+    print(x)
+    x+=3
+#Ciclo se ejecuta hasta que la condicion sea falsa. 
+# Crt + C para terminar la ejecuccion. 
+
+#Funciones. 
+# Bloque de codigo reutilizable. 
+# def <function>(parametro): 
+def mostrar_mensaje():
+    print("Hola Mundo!.")
+
+mostrar_mensaje() 
+#Parametros, variable que esta en la funcion y se usan cuando sean llamados. 
+
+def mostar_doble(num):
+    print(num*2)
+
+#Argumento es el valor que le damos a los parametros. 
+mostar_doble(2)
+
+#Return regresa un valor donde es llamada. 
+# return<valor>
+def sumar(x,y):
+    return x+y 
+
+print(sumar(2,3))
+
+#Recursion, es llamar a la funcion a si misma. 
+def fibonacchi(n): 
+    if n == 0 or n==1 : 
+        return n 
+    else: 
+        return fibonacchi(n-1)+fibonacchi(n-2)
+
+print(fibonacchi(3)) #2
+
+#Archivos 
+# Senetncia With se puede abrir y cerrar un archivo 
+# with open("nombre del archibo.txt", "Modo de apertura ") as archivo 
+with open ("grases_famosas.txt","r") as archivo: 
+    for linea in archivo: 
+        print("===Frase===")
+        print(linea)
+
+# r read leer
+# w write - escribor , ¡cambia completamente el contenido del archivo!
+# a append -añadir 
+# añadir + permite leer el archivo. 
+
+notas = {
+    "Nora": 87, 
+    "Gino": 100,
+    "Loretto": 67, 
+    "Talia":45
+}
+with open("data_estudiantes.txt","w") as archivo: 
+    for nombre, nota in notas.item():
+        archivo.write(nombre +": "+str(nota) + "\n")
+
+nuevas_notas={
+    "Emily": 54,
+    "Daniel": 98, 
+    "Julienne":78
+}
+with open("data_estudiantes.txt","a") as archivo: 
+    for nombre, nota in nuevas_notas.item():
+        archivo.write(nombre +": "+str(nota) + "\n")
+
+
+#Importaciones.
+# import NombreModulo 
+# import NombreModulo as matematicas , importar usando el modulo con un nombre alternativo. 
+# from Modulo import element , importar solo un elemento del modulo. 
+# Modulo.funcion(argumentos)
+# Modulo.constante  
+import math 
+print(math.pow(9,2)) #81
+print(math.pi)
+
+from math import pow 
+print(pow(9,2)) #81
+
+#POO
+# Clase representa la funcionalidad y atributos.
+class CuentaBancaria:
+    def __init__(self,num_cuenta,nombre_titular,balance):
+        self.num_cuenta = num_cuenta
+        self.nombre_titular = nombre_titular
+        self.balance = balance
+    
+    def generar_balance(self):
+        print(self.balance)
+    
+    def depositar(self,monto):
+        if monto >0: 
+            self.balance+= monto
+
+mi_cuenta = CuentaBancaria(1867626,"Alan Paz",100)
+
+print(mi_cuenta)
+print(mi_cuenta.balance) # 100 
+mi_cuenta.generar_balance() # 100 
+mi_cuenta.depositar(9900)
+mi_cuenta.generar_balance() #10,000
