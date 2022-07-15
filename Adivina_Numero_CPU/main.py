@@ -8,9 +8,18 @@ def adivina_numero(x):
     limite_inferior=1
     limite_superior=x
     respuesta= ""
-    while respuesta.upper() != "C":
+    while respuesta != "c":
         if limite_inferior != limite_superior: 
             prediccion = random.randint(limite_inferior,limite_superior)
         else:
             prediccion= limite_inferior
-        respuesta=input(f"La prediccion es {prediccion}, si es muy alta, ingrese (A). Si es muy baja (B). Si es correcta, ingrese (C): ")
+        respuesta=input(f"La prediccion es {prediccion}, si es muy alta, ingrese (A). Si es muy baja (B). Si es correcta, ingrese (C): ").lower()
+
+        if respuesta =="a": 
+            limite_superior= prediccion-1
+        elif respuesta=="b": 
+            limite_inferior= prediccion+1
+    print(f"¡Siii! La computadora adivino tu numero correctamente: {prediccion}")  
+
+
+adivina_numero(100)
