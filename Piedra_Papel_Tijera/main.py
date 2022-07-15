@@ -10,11 +10,19 @@ def jugar():
     computadora=random.choice(["pi","pa","ti"]) 
 
     if usuario == computadora:
-        return '¡Empate!'
+        return '¡Empate! \n' + escoger_computadora(computadora)
 
     if gano_el_jugador(usuario,computadora):
-        return '¡Ganaste!'
-    return '¡Perdiste!'
+        return '¡Ganaste! \n' +escoger_computadora(computadora)
+    return '¡Perdiste! \n'  + escoger_computadora(computadora)
+
+def escoger_computadora(seleccion):
+    if seleccion =='pi':
+        return 'la Computadora escogio Piedra.'
+    elif seleccion =='pa':
+        return 'la Computadora escogio Papel.'
+    else: 
+        return 'la Computadora escogio Tijeras.'
 
 
 print(jugar())
